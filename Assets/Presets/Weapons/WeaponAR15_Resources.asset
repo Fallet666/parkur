@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 429ff2f7befa89f4dabe3161e99ba200, type: 3}
+  m_Name: WeaponAR15_Resources
+  m_EditorClassIdentifier: 
+  weaponName: AR15
+  FirstPersonWeaponPrefab: {fileID: 8191553929622259957, guid: cd4c1dbe6a75e9e4b87370ed7a960685,
+    type: 3}
+  ThirdPersonWeaponObject: {fileID: -7253483650033943663, guid: db637e8e43560ef4ba074970dfb96f47,
+    type: 3}
+  ThirdPersonWeaponObjectParent: 0
+  OnSpineWeaponObjectLocalTransforms:
+    position: {x: 0, y: 0, z: 0}
+    rotation: {x: -0.70710677, y: 0, z: 0, w: 0.70710677}
+    scale: {x: 0.205, y: 0.205, z: 0.205}
+  ThirdPersonAnimatorController: {fileID: 22100000, guid: 0b9dbed7078b9fb4d916ec8db25d6125,
+    type: 2}
+  tracerType: 1
+  tracerSpeed: 300
+  useFireball: 1
+  useAmmo: 1
+  worldWeaponContainer: {fileID: 8501819874347832956, guid: ac57e9d17a902a5449acf8caf33a8887,
+    type: 3}
+  weaponType: 2
+  ui_icon: {fileID: 21300000, guid: 768f0cdb032eee646943d556b20d8f83, type: 3}
+  attackClips:
+  - {fileID: 8300000, guid: 0846a01c995c9f840ada131df9ed64a5, type: 3}
+  - {fileID: 8300000, guid: ce630a844fa90c545aea12018854b020, type: 3}
+  - {fileID: 8300000, guid: 774fadf0d024d6d4588bd269c4831284, type: 3}
+  attackClipsPitch: 1
+  attackClipsMaxDistance: 150
+  attackPitchRandomFactor: 0.037
+  extraClipsMaxDistance: 40
+  openingClips:
+  - {fileID: 8300000, guid: adefcb84f36b2e246b14e005e7ebfa92, type: 3}
+  - {fileID: 8300000, guid: b26dea51288d878409d473cddaac961c, type: 3}
+  - {fileID: 8300000, guid: e8b903a6e0069b443aec532b3153cb37, type: 3}
+  extraClips:
+  - {fileID: 8300000, guid: a3e6c07228e4c024c8b4097b98387fcc, type: 3}
+  - {fileID: 8300000, guid: a5df721896ccbf042a1fc371c209ed8d, type: 3}
+  - {fileID: 8300000, guid: 550b3b7614eb46844aec85a133792ab5, type: 3}
+  - {fileID: 8300000, guid: df3b6e4892da46a43ab753fa261c23fe, type: 3}
+  - {fileID: 8300000, guid: 64c63ebc77cca2e4eaaea5c47577b327, type: 3}
+  - {fileID: 8300000, guid: 0ac5a8e2821d85e4f92ea8bf09034f3e, type: 3}
