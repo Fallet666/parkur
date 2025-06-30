@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Unity.Netcode;
 
 public class PlayerUI : MonoBehaviour
 {
@@ -361,6 +362,15 @@ public class PlayerUI : MonoBehaviour
             _page.alpha = 0f;
             _page.gameObject.SetActive(false);
         }
+    }
+    #endregion
+    #region Connection
+    public void Disconnect()
+    {
+        var manager = NetworkManager.Singleton;
+
+        if (manager.IsListening)
+            manager.Shutdown();
     }
     #endregion
 }

@@ -12,11 +12,37 @@ public class NetworkGameManager : NetworkBehaviour
 
     [SerializeField] private List<PlayerNetwork> players = new List<PlayerNetwork>();
 
+    private Transform overridedSpawnPoint = null;
+
+    [SerializeField] private GameObject[] offlineObjects;
+
     private void Awake()
     {
         if(instance == null)
             instance = this;
+
+        overridedSpawnPoint = null;
+
+
     }
+
+    public void Start()
+    {
+        NetworkManager.Singleton.OnClientStarted += Singleton_OnClientStarted;
+        NetworkManager.Singleton.OnClientStopped += Singleton_OnClientStopped;
+    }
+    private void Singleton_OnClientStopped(bool stopObj)
+    {
+        foreach (var obj in offlineObjects)
+            obj.SetActive(true);
+    }
+
+    private void Singleton_OnClientStarted()
+    {
+        foreach(var obj in offlineObjects)
+            obj.SetActive(false);
+    }
+
     public static void InitializePlayer(PlayerNetwork _player) {
         if (instance == null || instance.players.Contains(_player))
             return;
@@ -33,19 +59,31 @@ public class NetworkGameManager : NetworkBehaviour
     }
 
     #region Spawn points
+
     [SerializeField] private Transform[] spawnPoints;
     public static GameObjectsTransforms GetAvailabeSpawnPoint()
     {
         if (instance == null)
             return new GameObjectsTransforms();
+
+        if(instance.overridedSpawnPoint != null)
+            return new GameObjectsTransforms(instance.overridedSpawnPoint);
+
         if (instance.spawnPoints.Length <= 0)
             return new GameObjectsTransforms();
 
         Transform sp = instance.spawnPoints[Random.Range(0, instance.spawnPoints.Length)];
         return new GameObjectsTransforms(sp);
     }
-    #endregion
 
+    public static void OverrideSpawnPoint(Transform newSpawnPoint)
+    {
+        if (instance == null)
+            return;
+
+        instance.overridedSpawnPoint = newSpawnPoint;
+    }
+    #endregion
 
     #region Respawn
     private void StartRespawnScenario(PlayerNetwork _player)
